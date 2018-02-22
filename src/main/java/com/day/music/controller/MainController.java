@@ -14,7 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class MainController {
 
-	@RequestMapping(value = { "/", "/welcome**" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/", "/welcome" }, method = RequestMethod.GET)
 	@ResponseBody
 	public String defaultPage() {
 		return "This is default page";
@@ -50,23 +50,23 @@ public class MainController {
 		return model;
 
 	}
-	
+
 	//for 403 access denied page
 	@RequestMapping(value = "/403", method = RequestMethod.GET)
 	public ModelAndView accesssDenied() {
 
 		ModelAndView model = new ModelAndView();
-		
+
 		//check if user is login
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		if (!(auth instanceof AnonymousAuthenticationToken)) {
 			UserDetails userDetail = (UserDetails) auth.getPrincipal();
 			System.out.println(userDetail);
-		
+
 			model.addObject("username", userDetail.getUsername());
-			
+
 		}
-		
+
 		model.setViewName("403");
 		return model;
 
