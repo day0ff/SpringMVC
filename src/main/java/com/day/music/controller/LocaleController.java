@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.Locale;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/locale")
 public class LocaleController {
 
     final static Logger logger = LoggerFactory.getLogger(LocaleController.class);
