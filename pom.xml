@@ -16,7 +16,7 @@
         <slf4j.version>1.7.3</slf4j.version>
         <logback.version>1.1.2</logback.version>
         <javax.servlet-api.version>4.0.0-b07</javax.servlet-api.version>
-        <postgresql.version>9.3-1102-jdbc41</postgresql.version>
+        <postgresql.version>9.4.1212</postgresql.version>
         <junit.version>4.12</junit.version>
         <jackson-databind.version>2.5.3</jackson-databind.version>
         <spring.security.version>3.2.3.RELEASE</spring.security.version>
