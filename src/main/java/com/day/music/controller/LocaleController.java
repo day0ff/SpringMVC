@@ -13,16 +13,26 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.Locale;
-
+/**
+ * The class controller realizes the business logic entities of entity Locale.
+ */
 @Controller
 @RequestMapping("/locale")
 public class LocaleController {
-
+    /**
+     * property - set logger
+     */
     final static Logger logger = LoggerFactory.getLogger(LocaleController.class);
-
+    /**
+     * property - set MessageSource bean
+     */
     @Autowired
     private MessageSource messageSource;
-
+    /**
+     * The method get page name
+     *
+     * @return current page name
+     */
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody
     public String getPageAlbum(ModelMap modelMap) {
@@ -30,7 +40,11 @@ public class LocaleController {
         logger.info(message);
         return message;
     }
-
+    /**
+     * The method set locale
+     *
+     * @return locale
+     */
     @RequestMapping(value = "/{locale}", method = RequestMethod.GET)
     @ResponseBody
     public String getLocale(@PathVariable("locale") String locale) {

@@ -13,19 +13,31 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Locale;
-
+/**
+ * The class controller realizes the business logic entities of entity Song.
+ */
 @Controller
 @RequestMapping("/song")
 public class SongController {
-
-    final static Logger logger = LoggerFactory.getLogger(AlbumController.class);
-
+    /**
+     * property - set logger
+     */
+    final static Logger logger = LoggerFactory.getLogger(SongController.class);
+    /**
+     * property - set MessageSource bean
+     */
     @Autowired
     private MessageSource messageSource;
-
+    /**
+     * property - set SongService bean
+     */
     @Autowired
     private SongService songService;
-
+    /**
+     * The method get page name
+     *
+     * @return current page name
+     */
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody
     public String getPageSong(ModelMap modelMap) {
@@ -33,7 +45,11 @@ public class SongController {
         logger.info(message);
         return message;
     }
-
+    /**
+     * The method saved song object to database
+     *
+     * @return saved song
+     */
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     @ResponseBody
     public Song saveSong(@RequestBody Song song) {
@@ -41,7 +57,11 @@ public class SongController {
         logger.info(message);
         return songService.save(song);
     }
-
+    /**
+     * The method delete song object from database
+     *
+     * @return saved song
+     */
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
@@ -50,7 +70,11 @@ public class SongController {
         logger.info(message);
         songService.delete(song);
     }
-
+    /**
+     * The method get song objects from database
+     *
+     * @return song list
+     */
     @RequestMapping(value = "/get", method = RequestMethod.GET)
     @ResponseBody
     public List<Song> getAllSongs() {
@@ -58,7 +82,11 @@ public class SongController {
         logger.info(message);
         return songService.findAll();
     }
-
+    /**
+     * The method get song object from database by id
+     *
+     * @return song
+     */
     @RequestMapping(value = "/get/{id}", method = RequestMethod.GET)
     @ResponseBody
     public Song getSongById(@PathVariable("id") long id) {
@@ -66,7 +94,11 @@ public class SongController {
         logger.info(message);
         return songService.findById(id);
     }
-
+    /**
+     * The method return songs count from database
+     *
+     * @return songs count
+     */
     @RequestMapping(value = "/count", method = RequestMethod.GET)
     @ResponseBody
     int getSongCount() {
@@ -74,7 +106,9 @@ public class SongController {
         logger.info(message);
         return songService.getCount();
     }
-
+    /**
+     * The method update song title by id
+     */
     @RequestMapping(value = "/update/{songName}/{id}", method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody

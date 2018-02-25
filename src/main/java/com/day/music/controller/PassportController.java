@@ -13,19 +13,31 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Locale;
-
+/**
+ * The class controller realizes the business logic entities of entity Passport.
+ */
 @Controller
 @RequestMapping("/passport")
 public class PassportController {
-
-    final static Logger logger = LoggerFactory.getLogger(AlbumController.class);
-
+    /**
+     * property - set logger
+     */
+    final static Logger logger = LoggerFactory.getLogger(PassportController.class);
+    /**
+     * property - set MessageSource bean
+     */
     @Autowired
     private MessageSource messageSource;
-
+    /**
+     * property - set PassportService bean
+     */
     @Autowired
     private PassportService passportService;
-
+    /**
+     * The method get page name
+     *
+     * @return current page name
+     */
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody
     public String getPagePassport(ModelMap modelMap) {
@@ -33,7 +45,11 @@ public class PassportController {
         logger.info(message);
         return message;
     }
-
+    /**
+     * The method saved passport object to database
+     *
+     * @return saved passport
+     */
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     @ResponseBody
     public Passport savePassport(@RequestBody Passport passport) {
@@ -41,7 +57,11 @@ public class PassportController {
         logger.info(message);
         return passportService.save(passport);
     }
-
+    /**
+     * The method delete passport object from database
+     *
+     * @return saved passport
+     */
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
@@ -50,7 +70,11 @@ public class PassportController {
         logger.info(message);
         passportService.delete(passport);
     }
-
+    /**
+     * The method get passport objects from database
+     *
+     * @return passport list
+     */
     @RequestMapping(value = "/get", method = RequestMethod.GET)
     @ResponseBody
     public List<Passport> getAllPassports() {
@@ -58,7 +82,11 @@ public class PassportController {
         logger.info(message);
         return passportService.findAll();
     }
-
+    /**
+     * The method get passport object from database by id
+     *
+     * @return passport
+     */
     @RequestMapping(value = "/get/{id}", method = RequestMethod.GET)
     @ResponseBody
     public Passport getPassportById(@PathVariable("id") long id) {
@@ -66,7 +94,11 @@ public class PassportController {
         logger.info(message);
         return passportService.findById(id);
     }
-
+    /**
+     * The method return passports count from database
+     *
+     * @return passports count
+     */
     @RequestMapping(value = "/count", method = RequestMethod.GET)
     @ResponseBody
     int getPassportCount() {
@@ -74,7 +106,9 @@ public class PassportController {
         logger.info(message);
         return passportService.getCount();
     }
-
+    /**
+     * The method update passport number by id
+     */
     @RequestMapping(value = "/update/{number}/{id}", method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody

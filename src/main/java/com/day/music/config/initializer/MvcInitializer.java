@@ -12,13 +12,21 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration;
 
+/**
+ * The class configure MVC DispatcherServlet
+ */
 public class MvcInitializer implements WebApplicationInitializer {
-
+	/**
+	 * property - set logger
+	 */
 	final static Logger logger = LoggerFactory.getLogger(MvcInitializer.class);
-
-
+	/**
+	 * property - set dispatcher
+	 */
 	private static final String DISPATCHER = "dispatcher";
-
+	/**
+	 * The method configure dispatcher servlet
+	 */
 	public void onStartup(ServletContext servletContext) throws ServletException {
 		logger.info("Begin WebApplicationInitializer");
 

@@ -2,20 +2,25 @@ package com.day.music.config;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ResourceBundleMessageSource;
 
-import java.util.Locale;
-
-
+/**
+ * The class configure the message source
+ */
 @Configuration
 public class LocaleConfig {
-
+    /**
+     * property - set logger
+     */
     final static Logger logger = LoggerFactory.getLogger(LocaleConfig.class);
-
+    /**
+     * The method сreate a new bean message source
+     *
+     * @return MessageSource
+     */
     @Bean
     public MessageSource messageSource () {
        logger.info("Begin Message Source");

@@ -13,19 +13,31 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Locale;
-
+/**
+ * The class controller realizes the business logic entities of entity Person.
+ */
 @Controller
 @RequestMapping("/person")
 public class PersonController {
-
-    final static Logger logger = LoggerFactory.getLogger(AlbumController.class);
-
+    /**
+     * property - set logger
+     */
+    final static Logger logger = LoggerFactory.getLogger(PersonController.class);
+    /**
+     * property - set MessageSource bean
+     */
     @Autowired
     private MessageSource messageSource;
-
+    /**
+     * property - set PersonService bean
+     */
     @Autowired
     private PersonService personService;
-
+    /**
+     * The method get page name
+     *
+     * @return current page name
+     */
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody
     public String getPagePerson(ModelMap modelMap) {
@@ -33,7 +45,11 @@ public class PersonController {
         logger.info(message);
         return message;
     }
-
+    /**
+     * The method saved person object to database
+     *
+     * @return saved person
+     */
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     @ResponseBody
     public Person savePerson(@RequestBody Person person) {
@@ -41,7 +57,11 @@ public class PersonController {
         logger.info(message);
         return personService.save(person);
     }
-
+    /**
+     * The method delete person object from database
+     *
+     * @return saved person
+     */
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
@@ -50,7 +70,11 @@ public class PersonController {
         logger.info(message);
         personService.delete(person);
     }
-
+    /**
+     * The method get person objects from database
+     *
+     * @return person list
+     */
     @RequestMapping(value = "/get", method = RequestMethod.GET)
     @ResponseBody
     public List<Person> getAllPersons() {
@@ -58,7 +82,11 @@ public class PersonController {
         logger.info(message);
         return personService.findAll();
     }
-
+    /**
+     * The method get person object from database by id
+     *
+     * @return person
+     */
     @RequestMapping(value = "/get/{id}", method = RequestMethod.GET)
     @ResponseBody
     public Person getPersonById(@PathVariable("id") long id) {
@@ -66,7 +94,11 @@ public class PersonController {
         logger.info(message);
         return personService.findById(id);
     }
-
+    /**
+     * The method return persons count from database
+     *
+     * @return persons count
+     */
     @RequestMapping(value = "/count", method = RequestMethod.GET)
     @ResponseBody
     int getPersonCount() {
@@ -74,7 +106,9 @@ public class PersonController {
         logger.info(message);
         return personService.getCount();
     }
-
+    /**
+     * The method update person first and last name by id
+     */
     @RequestMapping(value = "/update/{firstName}/{LastName}/{id}", method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody

@@ -11,7 +11,9 @@ import com.day.music.service.PersonService;
 import com.day.music.service.SongService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-
+/**
+ * The main class. The entry point of the program.
+ */
 public class AppData {
     public static void main(String[] args) {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(DataConfig.class);

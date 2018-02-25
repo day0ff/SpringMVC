@@ -13,19 +13,31 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Locale;
-
+/**
+ * The class controller realizes the business logic entities of entity Album.
+ */
 @Controller
 @RequestMapping("/album")
 public class AlbumController {
-
+    /**
+     * property - set logger
+     */
     final static Logger logger = LoggerFactory.getLogger(AlbumController.class);
-
+    /**
+     * property - set MessageSource bean
+     */
     @Autowired
     private MessageSource messageSource;
-
+    /**
+     * property - set AlbumService bean
+     */
     @Autowired
     private AlbumService albumService;
-
+    /**
+     * The method get page name
+     *
+     * @return current page name
+     */
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody
     public String getPageAlbum(ModelMap modelMap) {
@@ -33,8 +45,11 @@ public class AlbumController {
         logger.info(message);
         return message;
     }
-
-    //    @RequestMapping(value = "/save", method = RequestMethod.POST, consumes="application/json", produces = "application/json")
+    /**
+     * The method saved album object to database
+     *
+     * @return saved album
+     */
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     @ResponseBody
     public Album saveAlbum(@RequestBody Album album) {
@@ -42,7 +57,11 @@ public class AlbumController {
         logger.info(message);
         return albumService.save(album);
     }
-
+    /**
+     * The method delete album object from database
+     *
+     * @return saved album
+     */
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
@@ -51,8 +70,11 @@ public class AlbumController {
         logger.info(message);
         albumService.delete(album);
     }
-
-    //    @RequestMapping(value = "/get", method = RequestMethod.GET, produces = "application/json")
+    /**
+     * The method get album objects from database
+     *
+     * @return album list
+     */
     @RequestMapping(value = "/get", method = RequestMethod.GET)
     @ResponseBody
     public List<Album> getAllAlbums() {
@@ -60,7 +82,11 @@ public class AlbumController {
         logger.info(message);
         return albumService.findAll();
     }
-
+    /**
+     * The method get album object from database by id
+     *
+     * @return album
+     */
     @RequestMapping(value = "/get/{id}", method = RequestMethod.GET)
     @ResponseBody
     public Album getAlbumById(@PathVariable("id") long id) {
@@ -68,7 +94,11 @@ public class AlbumController {
         logger.info(message);
         return albumService.findById(id);
     }
-
+    /**
+     * The method return albums count from database
+     *
+     * @return albums count
+     */
     @RequestMapping(value = "/count", method = RequestMethod.GET)
     @ResponseBody
     int getAlbumCount() {
@@ -76,7 +106,9 @@ public class AlbumController {
         logger.info(message);
         return albumService.getCount();
     }
-
+    /**
+     * The method update album price by name
+     */
     @RequestMapping(value = "/update/{price}/{name}", method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
