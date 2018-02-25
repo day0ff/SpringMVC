@@ -1,6 +1,6 @@
 package com.day.music.controller;
 
-import com.day.music.entyti.Song;
+import com.day.music.entity.Song;
 import com.day.music.service.SongService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

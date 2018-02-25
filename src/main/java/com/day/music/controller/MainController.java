@@ -48,7 +48,6 @@ public class MainController {
 		model.setViewName("login");
 
 		return model;
-
 	}
 
 	//for 403 access denied page

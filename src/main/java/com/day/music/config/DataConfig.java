@@ -123,9 +123,9 @@ public class DataConfig {
         logger.info(message);
 
         Properties properties = new Properties();
-        properties.put(propHibernateDialect, propHibernateDialect);
-        properties.put(propHibernateShowSql, propHibernateShowSql);
-        properties.put(propHibernateHbm2ddlAuto, propHibernateHbm2ddlAuto);
+        properties.put("hibernate.dialect", propHibernateDialect);
+        properties.put("hibernate.show_sql", propHibernateShowSql);
+        properties.put("hibernate.format_sql", propHibernateHbm2ddlAuto);
 
         message = messageSource.getMessage("end", null,"locale not found", Locale.getDefault())
                 + " " + messageSource.getMessage("config.data.properties", null,"locale not found", Locale.getDefault()) ;

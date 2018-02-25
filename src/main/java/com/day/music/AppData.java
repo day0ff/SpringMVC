@@ -1,10 +1,10 @@
 package com.day.music;
 
 import com.day.music.config.DataConfig;
-import com.day.music.entyti.Album;
-import com.day.music.entyti.Passport;
-import com.day.music.entyti.Person;
-import com.day.music.entyti.Song;
+import com.day.music.entity.Album;
+import com.day.music.entity.Passport;
+import com.day.music.entity.Person;
+import com.day.music.entity.Song;
 import com.day.music.service.AlbumService;
 import com.day.music.service.PassportService;
 import com.day.music.service.PersonService;

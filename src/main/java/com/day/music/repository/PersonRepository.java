@@ -1,6 +1,6 @@
 package com.day.music.repository;
 
-import com.day.music.entyti.Person;
+import com.day.music.entity.Person;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

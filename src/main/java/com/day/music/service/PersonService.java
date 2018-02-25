@@ -1,6 +1,6 @@
 package com.day.music.service;
 
-import com.day.music.entyti.Person;
+import com.day.music.entity.Person;
 
 import java.util.List;
 

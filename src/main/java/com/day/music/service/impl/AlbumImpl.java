@@ -1,6 +1,6 @@
 package com.day.music.service.impl;
 
-import com.day.music.entyti.Album;
+import com.day.music.entity.Album;
 import com.day.music.repository.AlbumRepository;
 import com.day.music.service.AlbumService;
 import org.springframework.beans.factory.annotation.Autowired;

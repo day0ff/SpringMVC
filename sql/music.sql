@@ -23,3 +23,27 @@ CREATE TABLE album_song(
 	song_id INT REFERENCES song(song_id)
 	);
 
+--Security
+CREATE  TABLE users (
+  username VARCHAR(45) NOT NULL PRIMARY KEY ,
+  password VARCHAR(45) NOT NULL ,
+  enabled BOOLEAN NOT NULL DEFAULT true
+);
+CREATE TABLE user_roles (
+  	user_role_id SERIAL PRIMARY KEY,
+  	username varchar(45) NOT NULL REFERENCES users (username),
+  	role varchar(45) NOT NULL,
+	CONSTRAINT uni_username_role UNIQUE (role,username)
+	);
+
+INSERT INTO users(username,password,enabled)
+VALUES ('denis','123456', true);
+INSERT INTO users(username,password,enabled)
+VALUES ('alex','123456', true);
+
+INSERT INTO user_roles (username, role)
+VALUES ('denis', 'ROLE_USER');
+INSERT INTO user_roles (username, role)
+VALUES ('denis', 'ROLE_ADMIN');
+INSERT INTO user_roles (username, role)
+VALUES ('alex', 'ROLE_USER');

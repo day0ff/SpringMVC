@@ -1,6 +1,6 @@
 package com.day.music.service;
 
-import com.day.music.entyti.Album;
+import com.day.music.entity.Album;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;

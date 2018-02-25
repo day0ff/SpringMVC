@@ -1,4 +1,4 @@
-package com.day.music.entyti;
+package com.day.music.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 

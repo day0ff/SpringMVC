@@ -1,6 +1,6 @@
 package com.day.music.controller;
 
-import com.day.music.entyti.Passport;
+import com.day.music.entity.Passport;
 import com.day.music.service.PassportService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

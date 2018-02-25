@@ -1,6 +1,6 @@
 package com.day.music.service.impl;
 
-import com.day.music.entyti.Passport;
+import com.day.music.entity.Passport;
 import com.day.music.repository.PassportRepository;
 import com.day.music.service.PassportService;
 import org.springframework.beans.factory.annotation.Autowired;
