@@ -75,14 +75,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/admin/**").access("hasRole('ROLE_ADMIN')")
                 .and()
-                .formLogin().loginPage("/login").failureUrl("/login?error")
+                .formLogin().loginProcessingUrl("/login").failureUrl("/login?error")
                 .usernameParameter("username").passwordParameter("password")
                 .and()
-                .logout().logoutSuccessUrl("/login?logout")
+                .logout().logoutSuccessUrl("/welcome")
                 .and()
                 .exceptionHandling().accessDeniedPage("/403")
                 .and()
-                .csrf();
+                .csrf().disable();
         message = messageSource.getMessage("end", null, "locale not found", Locale.getDefault())
                 + " " + messageSource.getMessage("config.security.http.authorization", null, "locale not found", Locale.getDefault());
         logger.info(message);
