@@ -16,7 +16,8 @@ import java.util.Locale;
 /**
  * The class controller realizes the business logic entities of entity Person.
  */
-@Controller
+@RestController
+@CrossOrigin
 @RequestMapping("/person")
 public class PersonController {
     /**
@@ -39,7 +40,6 @@ public class PersonController {
      * @return current page name
      */
     @RequestMapping(method = RequestMethod.GET)
-    @ResponseBody
     public String getPagePerson(ModelMap modelMap) {
         String message = messageSource.getMessage("person.person", null,"locale not found", Locale.getDefault());
         logger.info(message);
@@ -51,7 +51,6 @@ public class PersonController {
      * @return saved person
      */
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    @ResponseBody
     public Person savePerson(@RequestBody Person person) {
         String message = messageSource.getMessage("person.save", null,"locale not found", Locale.getDefault());
         logger.info(message);
@@ -60,11 +59,9 @@ public class PersonController {
     /**
      * The method delete person object from database
      *
-     * @return saved person
      */
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.OK)
-    @ResponseBody
     void deletePerson(@RequestBody Person person) {
         String message = messageSource.getMessage("person.delete", null,"locale not found", Locale.getDefault());
         logger.info(message);
@@ -76,7 +73,6 @@ public class PersonController {
      * @return person list
      */
     @RequestMapping(value = "/get", method = RequestMethod.GET)
-    @ResponseBody
     public List<Person> getAllPersons() {
         String message = messageSource.getMessage("person.get.all", null,"locale not found", Locale.getDefault());
         logger.info(message);
@@ -88,7 +84,6 @@ public class PersonController {
      * @return person
      */
     @RequestMapping(value = "/get/{id}", method = RequestMethod.GET)
-    @ResponseBody
     public Person getPersonById(@PathVariable("id") long id) {
         String message = messageSource.getMessage("person.get.id", null,"locale not found", Locale.getDefault());
         logger.info(message);
@@ -100,7 +95,6 @@ public class PersonController {
      * @return persons count
      */
     @RequestMapping(value = "/count", method = RequestMethod.GET)
-    @ResponseBody
     int getPersonCount() {
         String message = messageSource.getMessage("person.count", null,"locale not found", Locale.getDefault());
         logger.info(message);
@@ -111,7 +105,6 @@ public class PersonController {
      */
     @RequestMapping(value = "/update/{firstName}/{LastName}/{id}", method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
-    @ResponseBody
     public void updatePersonFirstLastName(@PathVariable("firstName") String firstName,@PathVariable("LastName") String lastName,@PathVariable("id") Long personId) {
         String message = messageSource.getMessage("person.update.names", null,"locale not found", Locale.getDefault());
         logger.info(message);

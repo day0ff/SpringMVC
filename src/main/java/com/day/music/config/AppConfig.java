@@ -30,6 +30,8 @@ public class AppConfig {
     /**
      * The method сreate a new bean object view resolver
      *
+     * @deprecated not used
+     *
      * @return InternalResourceViewResolver
      */
     @Bean
@@ -46,6 +48,5 @@ public class AppConfig {
         logger.info(message);
         return viewResolver;
     }
-
 
 }

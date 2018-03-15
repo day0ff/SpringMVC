@@ -8,9 +8,9 @@ CREATE TABLE passport(
 	passport_number VARCHAR(100) NOT NULL
 	);
 CREATE TABLE person(
-	person_id SERIAL PRIMARY KEY, 
-	last_name VARCHAR(100) NOT NULL,
+	person_id SERIAL PRIMARY KEY,
 	first_name VARCHAR(100) NOT NULL,
+	last_name VARCHAR(100) NOT NULL,
 	passport_id INT REFERENCES passport(passport_id)
 	);
 CREATE TABLE song(
@@ -34,16 +34,5 @@ CREATE TABLE user_roles (
   	username varchar(45) NOT NULL REFERENCES users (username),
   	role varchar(45) NOT NULL,
 	CONSTRAINT uni_username_role UNIQUE (role,username)
-	);
+);
 
-INSERT INTO users(username,password,enabled)
-VALUES ('denis','1234', true);
-INSERT INTO users(username,password,enabled)
-VALUES ('alex','1234', true);
-
-INSERT INTO user_roles (username, role)
-VALUES ('denis', 'ROLE_USER');
-INSERT INTO user_roles (username, role)
-VALUES ('denis', 'ROLE_ADMIN');
-INSERT INTO user_roles (username, role)
-VALUES ('alex', 'ROLE_USER');
