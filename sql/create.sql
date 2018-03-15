@@ -37,9 +37,9 @@ CREATE TABLE user_roles (
 	);
 
 INSERT INTO users(username,password,enabled)
-VALUES ('denis','123456', true);
+VALUES ('denis','1234', true);
 INSERT INTO users(username,password,enabled)
-VALUES ('alex','123456', true);
+VALUES ('alex','1234', true);
 
 INSERT INTO user_roles (username, role)
 VALUES ('denis', 'ROLE_USER');
