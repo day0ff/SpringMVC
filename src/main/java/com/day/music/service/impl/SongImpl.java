@@ -48,6 +48,15 @@ public class SongImpl implements SongService{
         return songRepository.findAll();
     }
     /**
+     * The method return person songs list from database
+     *
+     * @return songs list
+     */
+    @Override
+    public List<Song> findPersonSongs(Long personId) {
+        return songRepository.findByPersonPersonId(personId);
+    }
+    /**
      * The method get song object from database by id
      *
      * @return song

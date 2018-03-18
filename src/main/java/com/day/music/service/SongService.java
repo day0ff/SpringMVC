@@ -8,6 +8,8 @@ public interface SongService {
     Song save(Song song);
     void delete(Song song);
     List<Song> findAll();
+    List<Song> findPersonSongs(Long personId);
+
     Song findById(Long songId);
     int getCount();
 

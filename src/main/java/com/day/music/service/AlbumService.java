@@ -1,6 +1,7 @@
 package com.day.music.service;
 
 import com.day.music.entity.Album;
+import com.day.music.entity.Song;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -12,6 +13,5 @@ public interface AlbumService {
     List<Album> findAll();
     Album findById(Long id);
     int getCount();
-
     void setAlbumPrice(int albumPrice, String albumName);
 }

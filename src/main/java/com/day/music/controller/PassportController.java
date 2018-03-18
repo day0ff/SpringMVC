@@ -16,7 +16,8 @@ import java.util.Locale;
 /**
  * The class controller realizes the business logic entities of entity Passport.
  */
-@Controller
+@RestController
+@CrossOrigin
 @RequestMapping("/passport")
 public class PassportController {
     /**
@@ -39,7 +40,6 @@ public class PassportController {
      * @return current page name
      */
     @RequestMapping(method = RequestMethod.GET)
-    @ResponseBody
     public String getPagePassport(ModelMap modelMap) {
         String message = messageSource.getMessage("passport.passport", null,"locale not found", Locale.getDefault());
         logger.info(message);
@@ -51,7 +51,6 @@ public class PassportController {
      * @return saved passport
      */
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    @ResponseBody
     public Passport savePassport(@RequestBody Passport passport) {
         String message = messageSource.getMessage("passport.save", null,"locale not found", Locale.getDefault());
         logger.info(message);
@@ -64,7 +63,6 @@ public class PassportController {
      */
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.OK)
-    @ResponseBody
     void deletePassport(@RequestBody Passport passport) {
         String message = messageSource.getMessage("passport.delete", null,"locale not found", Locale.getDefault());
         logger.info(message);
@@ -76,7 +74,6 @@ public class PassportController {
      * @return passport list
      */
     @RequestMapping(value = "/get", method = RequestMethod.GET)
-    @ResponseBody
     public List<Passport> getAllPassports() {
         String message = messageSource.getMessage("passport.get.all", null,"locale not found", Locale.getDefault());
         logger.info(message);
@@ -88,7 +85,6 @@ public class PassportController {
      * @return passport
      */
     @RequestMapping(value = "/get/{id}", method = RequestMethod.GET)
-    @ResponseBody
     public Passport getPassportById(@PathVariable("id") long id) {
         String message = messageSource.getMessage("passport.get.id", null,"locale not found", Locale.getDefault());
         logger.info(message);
@@ -100,7 +96,6 @@ public class PassportController {
      * @return passports count
      */
     @RequestMapping(value = "/count", method = RequestMethod.GET)
-    @ResponseBody
     int getPassportCount() {
         String message = messageSource.getMessage("passport.count", null,"locale not found", Locale.getDefault());
         logger.info(message);
@@ -111,7 +106,6 @@ public class PassportController {
      */
     @RequestMapping(value = "/update/{number}/{id}", method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
-    @ResponseBody
     void updatePassportNumber(@PathVariable("number") String passportNumber, @PathVariable("id") Long passportId) {
         String message = messageSource.getMessage("passport.update.number", null,"locale not found", Locale.getDefault());
         logger.info(message);

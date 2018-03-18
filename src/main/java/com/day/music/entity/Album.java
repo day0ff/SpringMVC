@@ -33,7 +33,7 @@ public class Album {
     /**
      * property - of Album reference to Songs
      */
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(
             name = "album_song",
             joinColumns = @JoinColumn(name = "album_id"),
