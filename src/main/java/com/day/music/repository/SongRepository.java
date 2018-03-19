@@ -6,9 +6,13 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface SongRepository extends JpaRepository<Song, Long>{
     Song findBySongId(Long songId);
+
+    List<Song> findByPersonPersonId(Long personId);
 
     @Query(value = "SELECT COUNT(SONG_ID) FROM SONG;",nativeQuery = true)
     int getCount();

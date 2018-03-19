@@ -7,16 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Locale;
 /**
  * The class controller realizes the business logic entities of entity Locale.
  */
-@Controller
+@RestController
+@CrossOrigin
 @RequestMapping("/locale")
 public class LocaleController {
     /**
@@ -34,7 +32,6 @@ public class LocaleController {
      * @return current page name
      */
     @RequestMapping(method = RequestMethod.GET)
-    @ResponseBody
     public String getPageAlbum(ModelMap modelMap) {
         String message = messageSource.getMessage("locale.locale", null,"locale not found", Locale.getDefault());
         logger.info(message);
@@ -46,7 +43,6 @@ public class LocaleController {
      * @return locale
      */
     @RequestMapping(value = "/{locale}", method = RequestMethod.GET)
-    @ResponseBody
     public String getLocale(@PathVariable("locale") String locale) {
         Locale.setDefault(new Locale(locale));
         String message = messageSource.getMessage("locale.change", null,"locale not found", Locale.getDefault());

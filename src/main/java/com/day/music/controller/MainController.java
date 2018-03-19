@@ -9,17 +9,15 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Locale;
 
 /**
  * The class controller realizes the business logic of Authorization.
  */
-@Controller
+@RestController
+@CrossOrigin
 public class MainController {
     /**
      * property - set logger
@@ -37,7 +35,6 @@ public class MainController {
      * @return welcome message
      */
     @RequestMapping(value = {"/", "/welcome"}, method = RequestMethod.GET)
-    @ResponseBody
     public String defaultPage() {
         String message = messageSource.getMessage("main.index", null, "locale not found", Locale.getDefault());
         logger.info(message);
@@ -51,7 +48,6 @@ public class MainController {
      * @return admin model
      */
     @RequestMapping(value = "/admin", method = RequestMethod.GET)
-    @ResponseBody
     public String adminPage() {
         String message = messageSource.getMessage("begin", null, "locale not found", Locale.getDefault())
                 + " " + messageSource.getMessage("main.admin", null, "locale not found", Locale.getDefault());
@@ -75,7 +71,6 @@ public class MainController {
      * @return login model
      */
     @RequestMapping(value = "/login", method = RequestMethod.GET)
-    @ResponseBody
     public String login(@RequestParam(value = "error", required = false) String error,
                         @RequestParam(value = "logout", required = false) String logout) {
         String message = messageSource.getMessage("begin", null, "locale not found", Locale.getDefault())
@@ -103,7 +98,6 @@ public class MainController {
      * @return access denied model
      */
     @RequestMapping(value = "/403", method = RequestMethod.GET)
-    @ResponseBody
     public String accesssDenied() {
         String message = messageSource.getMessage("begin", null, "locale not found", Locale.getDefault())
                 + " " + messageSource.getMessage("main.403", null, "locale not found", Locale.getDefault());

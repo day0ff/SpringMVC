@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+
 /**
  * The class implements the business logic entities of entity Album.
  */
@@ -18,6 +19,7 @@ public class AlbumImpl implements AlbumService {
      */
     @Autowired
     private AlbumRepository albumRepository;
+
     /**
      * The method saved album object to database
      *
@@ -28,6 +30,7 @@ public class AlbumImpl implements AlbumService {
     public Album save(Album album) {
         return albumRepository.saveAndFlush(album);
     }
+
     /**
      * The method delete album object from database
      *
@@ -38,6 +41,7 @@ public class AlbumImpl implements AlbumService {
     public void delete(Album album) {
         albumRepository.delete(album);
     }
+
     /**
      * The method get album objects from database
      *
@@ -48,6 +52,7 @@ public class AlbumImpl implements AlbumService {
     public List<Album> findAll() {
         return albumRepository.findAll();
     }
+
     /**
      * The method get album object from database by id
      *
@@ -57,6 +62,7 @@ public class AlbumImpl implements AlbumService {
     public Album findById(Long album_id) {
         return albumRepository.findByAlbumId(album_id);
     }
+
     /**
      * The method return albums count from database
      *
@@ -67,6 +73,9 @@ public class AlbumImpl implements AlbumService {
         return albumRepository.getCount();
     }
 
+    /**
+     * The method set album price
+     */
     @Transactional(readOnly = true)
     @Override
     public void setAlbumPrice(int albumPrice, String albumName) {

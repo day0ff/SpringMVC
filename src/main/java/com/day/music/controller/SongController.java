@@ -7,7 +7,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,7 +15,8 @@ import java.util.Locale;
 /**
  * The class controller realizes the business logic entities of entity Song.
  */
-@Controller
+@RestController
+@CrossOrigin
 @RequestMapping("/song")
 public class SongController {
     /**
@@ -39,7 +39,6 @@ public class SongController {
      * @return current page name
      */
     @RequestMapping(method = RequestMethod.GET)
-    @ResponseBody
     public String getPageSong(ModelMap modelMap) {
         String message = messageSource.getMessage("song.song", null,"locale not found", Locale.getDefault());
         logger.info(message);
@@ -51,7 +50,6 @@ public class SongController {
      * @return saved song
      */
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    @ResponseBody
     public Song saveSong(@RequestBody Song song) {
         String message = messageSource.getMessage("song.save", null,"locale not found", Locale.getDefault());
         logger.info(message);
@@ -64,7 +62,6 @@ public class SongController {
      */
     @RequestMapping(value = "/delete", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.OK)
-    @ResponseBody
     void deleteSong(@RequestBody Song song) {
         String message = messageSource.getMessage("song.delete", null,"locale not found", Locale.getDefault());
         logger.info(message);
@@ -76,7 +73,6 @@ public class SongController {
      * @return song list
      */
     @RequestMapping(value = "/get", method = RequestMethod.GET)
-    @ResponseBody
     public List<Song> getAllSongs() {
         String message = messageSource.getMessage("song.get.all", null,"locale not found", Locale.getDefault());
         logger.info(message);
@@ -88,11 +84,21 @@ public class SongController {
      * @return song
      */
     @RequestMapping(value = "/get/{id}", method = RequestMethod.GET)
-    @ResponseBody
     public Song getSongById(@PathVariable("id") long id) {
         String message = messageSource.getMessage("song.get.id", null,"locale not found", Locale.getDefault());
         logger.info(message);
         return songService.findById(id);
+    }
+    /**
+     * The method return person songs list from database
+     *
+     * @return songs list
+     */
+    @RequestMapping(value = "/find/{id}", method = RequestMethod.GET)
+    public List<Song> getPersonSongs(@PathVariable("id") long id) {
+        String message = messageSource.getMessage("song.find.id", null,"locale not found", Locale.getDefault());
+        logger.info(message);
+        return songService.findPersonSongs(id);
     }
     /**
      * The method return songs count from database
@@ -100,7 +106,6 @@ public class SongController {
      * @return songs count
      */
     @RequestMapping(value = "/count", method = RequestMethod.GET)
-    @ResponseBody
     int getSongCount() {
         String message = messageSource.getMessage("song.count", null,"locale not found", Locale.getDefault());
         logger.info(message);
@@ -111,7 +116,6 @@ public class SongController {
      */
     @RequestMapping(value = "/update/{songName}/{id}", method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
-    @ResponseBody
     public void updateSongName(@PathVariable("songName") String songName,@PathVariable("id") Long songId) {
         String message = messageSource.getMessage("song.update.name", null,"locale not found", Locale.getDefault());
         logger.info(message);

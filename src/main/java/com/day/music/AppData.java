@@ -50,7 +50,7 @@ public class AppData {
         album2.getSongs().add(song1);
         album2.getSongs().add(song2);
         album2.getSongs().add(song3);
-        System.out.println("Album     have been saved to data base: " + album2.toString());
+        System.out.println("Album have been saved to data base: " + album2.toString());
 
 
         albumService.setAlbumPrice(11, "Loving You");
