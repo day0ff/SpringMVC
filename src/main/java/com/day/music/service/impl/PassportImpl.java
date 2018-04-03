@@ -26,8 +26,7 @@ public class PassportImpl implements PassportService {
     @Transactional
     @Override
     public Passport save(Passport passport) {
-        Passport passportAdd = passportRepository.saveAndFlush(passport);
-        return passportAdd;
+        return passportRepository.saveAndFlush(passport);
     }
     /**
      * The method delete passport object from database

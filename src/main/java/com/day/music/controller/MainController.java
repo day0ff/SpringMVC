@@ -11,6 +11,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Locale;
 
 /**
@@ -18,6 +19,7 @@ import java.util.Locale;
  */
 @RestController
 @CrossOrigin
+@RequestMapping("/")
 public class MainController {
     /**
      * property - set logger
@@ -34,8 +36,21 @@ public class MainController {
      *
      * @return welcome message
      */
-    @RequestMapping(value = {"/", "/welcome"}, method = RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
     public String defaultPage() {
+        String message = messageSource.getMessage("main.index", null, "locale not found", Locale.getDefault());
+        logger.info(message);
+        message = messageSource.getMessage("main.index.message", null, "locale not found", Locale.getDefault());
+        return message;
+    }
+
+    /**
+     * Index page
+     *
+     * @return welcome message
+     */
+    @RequestMapping(value = {"/welcome"}, method = RequestMethod.GET)
+    public String welcometPage() {
         String message = messageSource.getMessage("main.index", null, "locale not found", Locale.getDefault());
         logger.info(message);
         message = messageSource.getMessage("main.index.message", null, "locale not found", Locale.getDefault());
@@ -66,9 +81,8 @@ public class MainController {
     /**
      * The method show login page with authentication form
      *
-     * @deprecated never gets here
-     *
      * @return login model
+     * @deprecated never gets here
      */
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login(@RequestParam(value = "error", required = false) String error,

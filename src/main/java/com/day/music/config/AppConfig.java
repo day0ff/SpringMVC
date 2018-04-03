@@ -21,19 +21,19 @@ public class AppConfig {
     /**
      * property - set logger
      */
-    final static Logger logger = LoggerFactory.getLogger(AppConfig.class);
-    /**
+/*    final static Logger logger = LoggerFactory.getLogger(AppConfig.class);
+    *//**
      * property - set MessageSource bean
-     */
+     *//*
     @Autowired
     private MessageSource messageSource;
-    /**
+    *//**
      * The method сreate a new bean object view resolver
      *
      * @deprecated not used
      *
      * @return InternalResourceViewResolver
-     */
+     *//*
     @Bean
     public InternalResourceViewResolver viewResolver() {
         String message = messageSource.getMessage("begin", null, "locale not found", Locale.getDefault())
@@ -47,6 +47,6 @@ public class AppConfig {
                 + " " + messageSource.getMessage("config.app", null, "locale not found", Locale.getDefault());
         logger.info(message);
         return viewResolver;
-    }
+    }*/
 
 }

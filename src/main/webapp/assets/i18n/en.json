@@ -1,0 +1,106 @@
+{
+  "App": {
+    "Title": "Music for everyone."
+  },
+  "Nav": {
+    "Home": "Home",
+    "Passports": "Passports",
+    "Persons": "Musician",
+    "Songs": "Songs",
+    "Albums": "Albums",
+    "Registration": "Registration"
+  },
+  "Modal": {
+    "Close": "Close",
+    "Delete": {
+      "Btn": "Delete",
+      "Title": "confirm action"
+    },
+    "Save": {
+      "Btn": "Save",
+      "Title": "confirm action"
+    },
+    "Update": {
+      "Btn": "Update",
+      "Title": "confirm action"
+    },
+    "Login": {
+      "Btn": "Login",
+      "Title": "Login form :",
+      "Login": "login",
+      "Password": "password",
+      "Register": "Register"
+    },
+    "Registration": {
+      "Btn": "Registration",
+      "Title": "Registration form :",
+      "Login": "login",
+      "Password": "password"
+    }
+  },
+  "Home": {
+    "Songs": "Favorite Songs:",
+    "Passports": "Favorite Passports:",
+    "Persons": "Favorite Musician:",
+    "Albums": "Favorite Albums :"
+  },
+  "Songs": {
+    "Title": "Songs",
+    "NewSong": "New Song",
+    "NotFound": "Song not found.",
+    "Details": {
+      "Song": "Song",
+      "Details": "details",
+      "CreateNewSong": "Create new Song",
+      "BtnBack": "go back"
+    }
+  },
+  "Passports": {
+    "Title": "Passports",
+    "NewPassport": "New Passport",
+    "NotFound": "Passport not found.",
+    "Details": {
+      "Passport": "Passport",
+      "Number": "number",
+      "Details": "details",
+      "CreateNewPassport": "Create new Passport",
+      "BtnBack": "go back"
+    }
+  },
+  "Persons": {
+    "Title": "Musician",
+    "NewPerson": "New Musician",
+    "NotFound": "Musician not found.",
+    "Details": {
+      "Person": "Musician",
+      "SongsList": "Songs list :",
+      "Kind": "musician",
+      "FirstName": "first name",
+      "LastName": "last name",
+      "Details": "details",
+      "CreateNewPerson": "Create new Musician",
+      "BtnBack": "go back"
+    }
+  },
+  "Albums": {
+    "Title": "Album",
+    "NewAlbum": "New Album",
+    "NotFound": "Album not found.",
+    "Details": {
+      "Album": "Album",
+      "SongsList": "Songs list :",
+      "Kind": "album",
+      "AlbumName": "title",
+      "AlbumPrice": "pricce",
+      "Details": "details",
+      "CreateNewAlbum": "Create new Album",
+      "BtnBack": "go back"
+    }
+  },
+  "Registration": {
+    "Login": "login",
+    "Password": "password",
+    "Register": "Register"
+  },
+  "PageNotFound": "Page not found."
+}

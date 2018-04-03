@@ -22,17 +22,15 @@ CREATE TABLE album_song(
 	album_id INT REFERENCES album(album_id),
 	song_id INT REFERENCES song(song_id)
 	);
-
---Security
-CREATE  TABLE users (
-  username VARCHAR(45) NOT NULL PRIMARY KEY ,
-  password VARCHAR(45) NOT NULL ,
+CREATE TABLE users(
+  username VARCHAR(45) NOT NULL PRIMARY KEY,
+  password VARCHAR(45) NOT NULL,
   enabled BOOLEAN NOT NULL DEFAULT true
 );
-CREATE TABLE user_roles (
+CREATE TABLE user_roles(
   	user_role_id SERIAL PRIMARY KEY,
   	username varchar(45) NOT NULL REFERENCES users (username),
   	role varchar(45) NOT NULL,
-	CONSTRAINT uni_username_role UNIQUE (role,username)
+	CONSTRAINT uni_username_role UNIQUE (role, username)
 );
 

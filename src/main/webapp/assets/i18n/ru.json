@@ -1,0 +1,106 @@
+{
+  "App":{
+    "Title": "Музыка для всех."
+  },
+  "Nav":{
+    "Home": "Домашняя",
+    "Passports": "Пасспорта",
+    "Persons": "Исполнители",
+    "Songs" : "Песни",
+    "Albums" : "Альбомы",
+    "Registration": "Регистрация"
+  },
+  "Modal":{
+    "Close":"Отмена",
+    "Delete":{
+      "Btn": "Удалить",
+      "Title": "подвердите действи"
+    },
+    "Save":{
+      "Btn": "Сохранить",
+      "Title": "подвердите действи"
+    },
+    "Update":{
+      "Btn": "Изменить",
+      "Title": "подвердите действи"
+    },
+    "Login":{
+      "Btn": "Войти",
+      "Title": "Форма входа :",
+      "Login": "логин",
+      "Password": "пароль",
+      "Register": "Зарегистрировваться"
+    },
+    "Registration":{
+      "Btn": "Регистрация",
+      "Title": "Форма регистрации :",
+      "Login": "логин",
+      "Password": "пароль"
+    }
+  },
+  "Home":{
+    "Songs": "Любимые Песни:",
+    "Passports": "Любимые Пасспорта:",
+    "Persons": "Любимые Исполнители:",
+    "Albums": "Любимые Альбомы :"
+  },
+  "Songs":{
+    "Title": "Песни",
+    "NewSong": "Новая Песня",
+    "NotFound":"Песня не найдена.",
+    "Details":{
+      "Song": "Песня",
+      "Details": "детали",
+      "CreateNewSong": "Создать новую Песню",
+      "BtnBack": "назад"
+    }
+  },
+  "Passports":{
+    "Title": "Пассорта",
+    "NewPassport": "Новый Пасспорт",
+    "NotFound":"Пасспорт не найден.",
+    "Details":{
+      "Passport": "Пасспорт",
+      "Number": "номер",
+      "Details": "детали",
+      "CreateNewPassport": "Создать новый Пасспорт",
+      "BtnBack": "назад"
+    }
+  },
+  "Persons":{
+    "Title": "Исполнители",
+    "NewPerson": "Новый Исполнитель",
+    "NotFound":"Исполнитель не найден.",
+    "Details":{
+      "Person": "Исполнитель",
+      "SongsList": "Список песен :",
+      "Kind": "исполнитель",
+      "FirstName": "имя",
+      "LastName": "фамилия",
+      "Details": "детали",
+      "CreateNewPerson": "Создать нового Исполнителя",
+      "BtnBack": "назад"
+    }
+  },
+  "Albums":{
+    "Title": "Альбом",
+    "NewAlbum": "Новый Альбом",
+    "NotFound":"Альбом не найден.",
+    "Details":{
+      "Album": "Альбом",
+      "SongsList": "Список песен :",
+      "Kind": "Альбом",
+      "AlbumName": "название",
+      "AlbumPrice": "цена",
+      "Details": "детали",
+      "CreateNewAlbum": "Создать новый Альбом",
+      "BtnBack": "назад"
+    }
+  },
+  "Registration":{
+    "Login": "логин",
+    "Password": "пароль",
+    "Register": "Регистрация"
+  },
+  "PageNotFound":"Страница не найдена."
+}
